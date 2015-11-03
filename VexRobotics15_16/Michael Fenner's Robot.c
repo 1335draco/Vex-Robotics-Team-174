@@ -67,6 +67,7 @@ void teleop()
 	if(vexRT[Btn6D])
 	{
 		aSpeed = 126;
+		counter1  =0;
 	}
 	else
 	{
@@ -74,9 +75,9 @@ void teleop()
 		{
 			aSpeed = aSpeed - 35;
 			counter1 = counter1+1;
-			wait1Msec(70);
+			wait1Msec(35);
 		}
-		 counter1  =0;
+
 		 aSpeed = 0;
 	}
 	//shootMotors(aSpeed);
@@ -84,6 +85,7 @@ void teleop()
 	if(vexRT[Btn6U])
 	{
 		bSpeed = 126;
+		counter2 = 0;
 	}
 	else
 	{
@@ -91,9 +93,9 @@ void teleop()
 		{
 			bSpeed = bSpeed - 35;
 			counter2 = counter2 + 1;
-			wait1Msec(70);
+			wait1Msec(35);
 		}
-		counter2 = 0;
+
 		bSpeed = 0;
 	}
 
@@ -101,6 +103,7 @@ void teleop()
 	if(vexRT[Btn5D])
 	{
 		cSpeed = 126;
+		counter3 = 0;
 	}
 	else
 	{
@@ -108,15 +111,16 @@ void teleop()
 		{
 			counter3 = counter3 +1;
 			cSpeed = cSpeed -35;
-			wait1Msec(70);
+			wait1Msec(35);
 		}
 		cSpeed = 0;
-		counter3 = 0;
+
 	}
 
 	if(vexRT[Btn5U])
 	{
 		dSpeed = 126;
+		counter4 = 0;
 	}
 	else
 	{
@@ -124,10 +128,10 @@ void teleop()
 		{
 			dSpeed = dSpeed - 35;
 			counter4 = counter4 + 1;
-			wait1Msec(70);
+			wait1Msec(35);
 		}
 		dSpeed = 0;
-		counter4 = 0;
+
 	}
 	//shootMotors(dSpeed);
 
@@ -136,11 +140,11 @@ void teleop()
 
 	shootMotors(aSpeed, bSpeed, cSpeed, dSpeed);
 
-	if(vexRT[Btn8U])
+	if(vexRT[Btn8D])
 	{
 		harvestSpeedUpper = 120;
 	}
-	else if(vexRT[Btn8D])
+	else if(vexRT[Btn8U])
 	{
 		harvestSpeedUpper = -120;
 	}
