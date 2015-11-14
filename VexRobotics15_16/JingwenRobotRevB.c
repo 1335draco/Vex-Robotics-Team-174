@@ -21,7 +21,7 @@ void driveMotors (int leftSpeed, int rightSpeed)
 
 void liftMotors (int fSpeed)
 {
-		motor[leftForklift] = fSpeed;
+		motor[leftForklift] = -fSpeed;
 		motor[rightForklift] = fSpeed;
 }
 
@@ -34,6 +34,14 @@ void teleop ()
 	if(vexRT[Btn6U])
 	{
 		fSpeed = 127;
+	}
+	else if(vexRT[Btn6D])
+	{
+		fSpeed = -127;
+	}
+	else
+	{
+		fSpeed = 0;
 	}
 
 	liftMotors (fSpeed);
@@ -111,7 +119,7 @@ task usercontrol()
 	  // .....................................................................................
 	  // Insert user code here. This is where you use the joystick values to update your motors, etc.
 	  // .....................................................................................
-
-	  UserControlCodePlaceholderForTesting(); // Remove this function call once you have "real" code.
+	teleop();
+	  //UserControlCodePlaceholderForTesting(); // Remove this function call once you have "real" code.
 	}
 }
